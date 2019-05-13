@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3315B98F-457E-4B9B-AC89-C9DEF30FD0E5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>UITesting</RootNamespace>
+    <AssemblyName>UITesting</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="appium-dotnet-driver">
+      <HintPath>..\packages\Appium.WebDriver.3.0.0.2\lib\net45\appium-dotnet-driver.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.3.6.1\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="TechTalk.SpecFlow">
+      <HintPath>..\packages\SpecFlow.2.1.0\lib\net45\TechTalk.SpecFlow.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.4.0.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver">
+      <HintPath>..\packages\Selenium.WebDriver.3.3.0\lib\net40\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support">
+      <HintPath>..\packages\Selenium.Support.3.3.0\lib\net40\WebDriver.Support.dll</HintPath>
+    </Reference>
+    <Reference Include="NCalc">
+      <HintPath>..\packages\CoreCLR-NCalc.2.1.3\lib\net45\NCalc.dll</HintPath>
+    </Reference>
+    <Reference Include="SpecRun.SpecFlowPlugin">
+      <HintPath>..\packages\SpecRun.SpecFlow.1.5.2\lib\net45\SpecRun.SpecFlowPlugin.dll</HintPath>
+    </Reference>
+    <Reference Include="TechTalk.SpecRun">
+      <HintPath>..\packages\SpecRun.SpecFlow.1.5.2\lib\net45\TechTalk.SpecRun.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Test.cs" />
+    <Compile Include="Framework\Core\Driver.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Framework\Core\Configuration.cs" />
+    <Compile Include="Framework\UI\Controls\Control.cs" />
+    <Compile Include="Framework\UI\Controls\Edit.cs" />
+    <Compile Include="Framework\UI\Controls\Select.cs" />
+    <Compile Include="Framework\UI\Page.cs" />
+    <Compile Include="Pages\SearchPage.cs" />
+    <Compile Include="Pages\SearchResultsPage.cs" />
+    <Compile Include="Framework\UI\FindBy.cs" />
+    <Compile Include="Framework\UI\PageFactory.cs" />
+    <Compile Include="Framework\UI\TargetPlatform.cs" />
+    <Compile Include="Pages\Controls\LocationLookupEdit.cs" />
+    <Compile Include="Pages\Android\LocationSearchPage.cs" />
+    <Compile Include="Pages\Banking\AddCustomerPage.cs" />
+    <Compile Include="Pages\Banking\BankManagerCommonPage.cs" />
+    <Compile Include="Pages\Banking\CustomersPage.cs" />
+    <Compile Include="Pages\Banking\HomePage.cs" />
+    <Compile Include="TestBanking.cs" />
+    <Compile Include="Framework\UI\Controls\TableView.cs" />
+    <Compile Include="Framework\UI\SubItem.cs" />
+    <Compile Include="Framework\ODT\ODTRunner.cs" />
+    <Compile Include="Framework\ODT\ODTContainerRunner.cs" />
+    <Compile Include="Framework\ODT\ODTTestStep.cs" />
+    <Compile Include="Framework\ODT\ODTTestCase.cs" />
+    <Compile Include="Framework\ODT\ODTTestSuite.cs" />
+    <Compile Include="Framework\UI\Alias.cs" />
+    <Compile Include="KDTSteps\BasicKDTSteps.cs" />
+    <Compile Include="Features\BankManager.feature.cs">
+      <DependentUpon>BankManager.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Framework\Core\Context.cs" />
+    <Compile Include="ODTTestBanking.cs" />
+    <Compile Include="ODTSteps\ODTBankingSteps.cs" />
+    <Compile Include="Features\BankUser.feature.cs">
+      <DependentUpon>BankUser.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Banking\CustomerCommonPage.cs" />
+    <Compile Include="Pages\Banking\CustomerDepositPage.cs" />
+    <Compile Include="Pages\Banking\CustomerLoginPage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="app.config" />
+    <None Include="chromedriver">
+      <IncludeInPackage>false</IncludeInPackage>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="chromedriver.exe">
+      <IncludeInPackage>false</IncludeInPackage>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="geckodriver">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Features\BankManager.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>BankManager.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\BankUser.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>BankUser.feature.cs</LastGenOutput>
+    </None>
+    <None Include="SpecRunTestProfile_2011_09.xsd" />
+    <None Include="SpecRunTestProfile.xsd" />
+    <None Include="runtests.cmd" />
+    <None Include="Default.srprofile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Framework\" />
+    <Folder Include="Framework\Core\" />
+    <Folder Include="Framework\UI\" />
+    <Folder Include="Framework\UI\Controls\" />
+    <Folder Include="Pages\" />
+    <Folder Include="Pages\Controls\" />
+    <Folder Include="Pages\Android\" />
+    <Folder Include="Pages\Banking\" />
+    <Folder Include="Framework\ODT\" />
+    <Folder Include="Features\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
